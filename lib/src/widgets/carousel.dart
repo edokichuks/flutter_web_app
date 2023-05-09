@@ -73,7 +73,6 @@ class _MainCarouselState extends State<MainCarousel> {
                       _isSelected[i] = false;
                     }
                   }
-
                 });
               }),
           carouselController: _controller,
@@ -92,7 +91,9 @@ class _MainCarouselState extends State<MainCarousel> {
             ),
           ),
         ),
-         AspectRatio(
+        screenSize.width < 800
+            ? Container()
+            : AspectRatio(
                 aspectRatio: 17 / 8,
                 child: Center(
                   heightFactor: 1,
@@ -150,11 +151,12 @@ class _MainCarouselState extends State<MainCarousel> {
                                       maintainState: true,
                                       visible: _isSelected[i],
                                       child: AnimatedOpacity(
-                                        duration: Duration(milliseconds: 400),
+                                        duration:
+                                            const Duration(milliseconds: 1000),
                                         opacity: _isSelected[i] ? 1 : 0,
                                         child: Container(
                                           height: 5,
-                                          decoration: BoxDecoration(
+                                          decoration: const BoxDecoration(
                                             color: Colors.blueGrey,
                                             borderRadius: BorderRadius.all(
                                               Radius.circular(10),

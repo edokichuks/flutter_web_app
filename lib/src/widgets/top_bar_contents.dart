@@ -30,7 +30,7 @@ class _TopBarContentsState extends State<TopBarContents> {
       child: Container(
         color: Colors.white.withOpacity(widget.opacity),
         child: Padding(
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -38,8 +38,10 @@ class _TopBarContentsState extends State<TopBarContents> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    SizedBox(width: screenSize.width/4,),
-                    Text(
+                    SizedBox(
+                      width: screenSize.width / 4,
+                    ),
+                    const Text(
                       'Author',
                       style: TextStyle(
                         color: Color(0xFF077bd7),
@@ -66,13 +68,12 @@ class _TopBarContentsState extends State<TopBarContents> {
                             'Home',
                             style: TextStyle(
                                 color: _isHovering[0]
-                                    ? Color(0xFF077bd7)
-                                    : Color(0xFF077bd7),
+                                    ? const Color(0xFF077bd7)
+                                    : const Color(0xFF077bd7),
                                 fontWeight: FontWeight.bold,
-                                fontSize: 16
-                            ),
+                                fontSize: 16),
                           ),
-                          SizedBox(height: 5),
+                          const SizedBox(height: 5),
                           Visibility(
                             maintainAnimation: true,
                             maintainState: true,
@@ -81,17 +82,126 @@ class _TopBarContentsState extends State<TopBarContents> {
                             child: Container(
                               height: 2,
                               width: 20,
-                              color: Color(0xFF051441),
+                              color: Colors.blue,
                             ),
                           )
                         ],
                       ),
                     ),
-
+                    SizedBox(width: screenSize.width / 15),
+                    InkWell(
+                      onHover: (value) {
+                        setState(() {
+                          value
+                              ? _isHovering[1] = true
+                              : _isHovering[1] = false;
+                        });
+                      },
+                      onTap: () {},
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            'About',
+                            style: TextStyle(
+                                color: _isHovering[0]
+                                    ? const Color(0xFF077bd7)
+                                    : const Color(0xFF077bd7),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16),
+                          ),
+                          const SizedBox(height: 5),
+                          Visibility(
+                            maintainAnimation: true,
+                            maintainState: true,
+                            maintainSize: true,
+                            visible: _isHovering[1],
+                            child: Container(
+                              height: 2,
+                              width: 20,
+                              color: Colors.blue,
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    SizedBox(width: screenSize.width / 15),
+                    InkWell(
+                      onHover: (value) {
+                        setState(() {
+                          value
+                              ? _isHovering[2] = true
+                              : _isHovering[2] = false;
+                        });
+                      },
+                      onTap: () {},
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            'History',
+                            style: TextStyle(
+                                color: _isHovering[0]
+                                    ? const Color(0xFF077bd7)
+                                    : const Color(0xFF077bd7),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16),
+                          ),
+                          const SizedBox(height: 5),
+                          Visibility(
+                            maintainAnimation: true,
+                            maintainState: true,
+                            maintainSize: true,
+                            visible: _isHovering[2],
+                            child: Container(
+                              height: 2,
+                              width: 20,
+                              color: Colors.blue,
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    SizedBox(width: screenSize.width / 15),
+                    InkWell(
+                      onHover: (value) {
+                        setState(() {
+                          value
+                              ? _isHovering[3] = true
+                              : _isHovering[3] = false;
+                        });
+                      },
+                      onTap: () {},
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            'Contact',
+                            style: TextStyle(
+                                color: _isHovering[3]
+                                    ? const Color(0xFF077bd7)
+                                    : const Color(0xFF077bd7),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16),
+                          ),
+                          const SizedBox(height: 5),
+                          Visibility(
+                            maintainAnimation: true,
+                            maintainState: true,
+                            maintainSize: true,
+                            visible: _isHovering[3],
+                            child: Container(
+                              height: 2,
+                              width: 20,
+                              color: Colors.blue,
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ),
-
             ],
           ),
         ),
